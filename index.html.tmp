@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ScoutX – India's tech-powered grassroots football scouting platform. Empowering coaches, players and scouts with verified stats, AI analytics and a discovery network.">
+  <title>ScoutX | Revolutionise Talent Discovery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-dark: #1a2e1a;
+      --primary-green: #2d5a3d;
+      --accent-lime: #c8f560;
+      --accent-orange: #ff6b35;
+      --white: #fff;
+      --off-white: #f8f9f5;
+      --dark-gray: #4a5240;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--primary-dark); }
+    /* Header */
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(26,46,26,0.95); backdrop-filter: blur(20px); padding: 1rem 0; }
+    nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; color: var(--white); padding: 0 var(--space-md); }
+    .logo { display: flex; align-items: center; font-family: 'Bebas Neue', sans-serif; font-size: 2rem; text-decoration: none; color: var(--white); }
+    .logo span { color: var(--accent-lime); }
+    nav ul { list-style: none; display: flex; gap: var(--space-lg); }
+    nav a { color: var(--white); text-decoration: none; font-weight: 500; position: relative; }
+    nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--accent-lime); transition: width 0.3s; }
+    nav a:hover::after { width: 100%; }
+    .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: var(--radius-full); font-weight: 600; text-decoration: none; transition: 0.3s; }
+    .btn-primary { background: var(--accent-lime); color: var(--primary-dark); }
+    .btn-primary:hover { background: var(--white); }
+    /* Hero */
+    .hero { min-height: 100vh; background: linear-gradient(135deg, #1a2e1a, #2d5a3d); padding-top: 80px; display: flex; align-items: center; }
+    .hero .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); align-items: center; padding: 0 var(--space-md); }
+    .hero-badge { display: inline-flex; align-items: center; background: rgba(200,245,96,0.15); border: 1px solid rgba(200,245,96,0.3); color: var(--accent-lime); padding: 0.4rem 0.8rem; border-radius: var(--radius-full); font-size: 0.8rem; text-transform: uppercase; margin-bottom: var(--space-sm); }
+    .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: var(--white); margin-bottom: var(--space-sm); }
+    .hero-title span { color: var(--accent-lime); }
+    .hero-subtitle { color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 500px; line-height: 1.6; margin-bottom: var(--space-md); }
+    .hero img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+    /* Solutions */
+    .solutions { padding: 4rem 0; background: var(--off-white); }
+    .solutions .grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-lg); padding: 0 var(--space-md); }
+    .solutions .card { background: var(--white); border-radius: var(--radius-lg); padding: var(--space-md); text-align: center; border: 2px solid transparent; transition: 0.3s; }
+    .solutions .card:hover { border-color: var(--accent-lime); transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+    .solutions .card .icon { font-size: 2rem; color: var(--accent-lime); margin-bottom: 0.5rem; }
+    .solutions .card img { width: 100%; height: 180px; object-fit: cover; border-radius: var(--radius-lg); margin-bottom: 0.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.4s ease; }
+    .solutions .card img:hover { transform: scale(1.02); }
+    .solutions .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 0.4rem; }
+    .solutions .card-text { color: var(--dark-gray); font-size: 0.9rem; line-height: 1.6; }
+    /* Team */
+    .team { background: var(--off-white); padding: 4rem 0; }
+    .team-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-lg); padding: 0 var(--space-md); }
+    .team-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid #e0e0e0; transition: transform 0.3s; }
+    .team-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+    .team-card img { width: 100%; height: 280px; object-fit: cover; }
+    .team-info { padding: var(--space-md); text-align: center; }
+    .team-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--primary-dark); margin-bottom: 0.3rem; }
+    .team-role { color: var(--accent-orange); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .team-bio { color: var(--dark-gray); font-size: 0.9rem; line-height: 1.6; }
+    .team-highlight { display: inline-block; background: var(--primary-dark); color: var(--accent-lime); padding: 0.3rem 0.6rem; border-radius: var(--radius-full); font-size: 0.75rem; margin-top: 0.5rem; }
+    /* Footer */
+    footer { background: var(--primary-dark); color: rgba(255,255,255,0.7); padding: 3rem 0; }
+    footer h3 { color: var(--white); font-family: 'Bebas Neue', sans-serif; margin-bottom: 1rem; }
+    footer p { max-width: 500px; line-height: 1.6; margin-bottom: 1rem; }
+    footer form { display: flex; flex-wrap: wrap; gap: 0.5rem; max-width: 500px; margin: 0 auto; }
+    footer input { flex: 1; padding: 0.75rem; border-radius: var(--radius-lg); border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: var(--white); }
+    footer button { flex-basis: 150px; background: var(--accent-lime); color: var(--primary-dark); border: none; padding: 0.75rem; border-radius: var(--radius-lg); font-weight: 600; cursor: pointer; }
+    footer button:hover { background: var(--white); }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero .container { grid-template-columns: 1fr; text-align: center; }
+      .hero-subtitle { margin-left: auto; margin-right: auto; }
+      nav ul { display: none; }
+      .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="#" class="logo">SCOUT<span>X</span></a>
+    <ul>
+      <li><a href="#solution">Solution</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary">Join Waitlist</a>
+  </nav>
+</header>
+
+<section class="hero" id="hero">
+  <div class="container">
+    <div>
+      <span class="hero-badge">Data-Driven &middot; Future-Ready</span>
+      <h1 class="hero-title">Revolutionise <span>Talent</span> Discovery</h1>
+      <p class="hero-subtitle">Step into the future of grassroots football scouting. ScoutX empowers coaches and scouts with AI-powered analytics and immersive tools to find and elevate India's hidden talent.</p>
+      <a href="#solution" class="btn btn-primary" style="margin-top:1rem;">Learn More</a>
+    </div>
+    <div>
+      <img src="images/hero.jpg" alt="Hero image" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="solutions" id="solution">
+  <div style="text-align:center;margin-bottom:2rem;padding:0 var(--space-md);">
+    <span class="hero-badge" style="background:var(--primary-green);border-color:var(--primary-green);color:var(--white);">Our Solution</span>
+    <h2 class="hero-title" style="color:var(--primary-dark);">Digital Scouting Infrastructure</h2>
+    <p style="max-width:600px;margin:0 auto;color:var(--dark-gray);font-size:1rem;">ScoutX is more than an app &ndash; it's an end-to-end platform that empowers coaches, players and scouts with verified stats, AI-assisted analytics and a discovery network.</p>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="icon">&#x1F464;</div>
+      <img src="images/feature-profiles.png" alt="Shareable player profiles illustration" loading="lazy">
+      <div class="card-title">Shareable Player Profiles</div>
+      <p class="card-text">Every player receives a verified profile with stats, highlights and growth charts. Share a single link with scouts, colleges and parents.</p>
+    </div>
+    <div class="card">
+      <div class="icon">&#x1F3A5;</div>
+      <img src="images/feature-analysis.png" alt="AI-assisted video analysis illustration" loading="lazy">
+      <div class="card-title">AI-Assisted Video Analysis</div>
+      <p class="card-text">Upload match videos and let our proprietary algorithms track speed, stamina, passing accuracy and more. Coaches gain insights without losing hours.</p>
+    </div>
+    <div class="card">
+      <div class="icon">&#x1F4C8;</div>
+      <img src="images/feature-dashboards.png" alt="School coach dashboards illustration" loading="lazy">
+      <div class="card-title">School Coach Dashboards</div>
+      <p class="card-text">Interactive dashboards enable coaches to monitor team performance, compare metrics and plan training sessions in one intuitive interface.</p>
+    </div>
+    <div class="card">
+      <div class="icon">&#x1F50D;</div>
+      <img src="images/feature-network.png" alt="Scout discovery network illustration" loading="lazy">
+      <div class="card-title">Scout Discovery Network</div>
+      <p class="card-text">A filterable database of verified talent lets scouts search by region, position and metrics. Schools gain visibility and players get discovered.</p>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <div style="text-align:center;margin-bottom:2rem;padding:0 var(--space-md);">
+    <span class="hero-badge" style="background:var(--primary-green);border-color:var(--primary-green);color:var(--white);">Meet Us</span>
+    <h2 class="hero-title" style="color:var(--primary-dark);">A Team of Football Fanatics</h2>
+    <p style="max-width:600px;margin:0 auto;color:var(--dark-gray);font-size:1rem;">We combine operations, strategic planning and consultative sales expertise with an obsession for the beautiful game.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <img src="images/romil.jpg" alt="Romil Gulia" loading="lazy">
+      <div class="team-info">
+        <div class="team-name">Romil Gulia</div>
+        <div class="team-role">Co-Founder &amp; Operations Lead</div>
+        <p class="team-bio">Operations &amp; strategy leader with a decade of experience scaling logistics and research organisations. Built a 140-person team, improved productivity by 30% and delivered multi-crore cost savings. Engineer and Executive Master's alum.</p>
+        <span class="team-highlight">Operational Strategist</span>
+      </div>
+    </div>
+    <div class="team-card">
+      <img src="images/miraan.jpg" alt="Miraan Singh Sahota" loading="lazy">
+      <div class="team-info">
+        <div class="team-name">Miraan Singh Sahota</div>
+        <div class="team-role">Co-Founder &amp; Growth Lead</div>
+        <p class="team-bio">Sales &amp; growth specialist who generated over $150K in revenue at Best Buy and led flagship tech product launches. Awarded prestigious scholarships and previously on the Dean's List. Focuses on market adoption, partnerships and revenue.</p>
+        <span class="team-highlight">Growth Architect</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div style="max-width:1200px;margin:0 auto;text-align:center;padding:0 var(--space-md);">
+    <h3>Let's Build the Future of Football Together</h3>
+    <p style="margin:0 auto 1rem;">Ready to unlock India's invisible talent? Join our waitlist for early access, or reach out to explore partnerships and pilot opportunities.</p>
+    <form>
+      <input type="email" placeholder="Your email">
+      <button type="submit">Notify Me</button>
+    </form>
+    <p style="margin-top:1rem;font-size:0.8rem;">&copy; 2026 ScoutX. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
